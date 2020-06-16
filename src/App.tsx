@@ -1,12 +1,13 @@
 import React from 'react'
 import './App.css'
 
-function App() {
+type Props = {
+
+};
+export const App = (props: Props) => {
   return (
-    <div className='App'>
-      bbb
+    <div>
+            appp
     </div>
   )
 }
-
-export default App
