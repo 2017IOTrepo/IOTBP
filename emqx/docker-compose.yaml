@@ -22,6 +22,8 @@ services:
       - "EMQX_AUTH__MYSQL__SUPER_QUERY=select is_superuser from mqtt_user where username = '%u' limit 1"
       - "EMQX_AUTH__MYSQL__ACL_QUERY=select allow, ipaddr, username, clientid, access, REPLACE(topic,'$$user','%c') from mqtt_acl where ipaddr = '%a' or username = '%u' or username = '$$all' or clientid = '%c'"
       - EMQX_LOADED_PLUGINS="emqx_recon,emqx_retainer,emqx_management,emqx_dashboard,emqx_auth_mysql"
+    volumes:
+      - /etc/localtime:/etc/localtime
   db:
     image: mysql:5.7
     environment:
