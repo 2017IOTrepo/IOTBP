@@ -1,16 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
-import { Button } from 'antd'
-import 'mqtt'
 
-type Props = {
-};
-export const App = (props: Props) => {
+export const App = () => {
+  // 相当于 componentDidMount 和 componentDidUpdate:
+  useEffect(() => {
+    console.log('11')
+  })
+
   return (
     <div className={'container'}>
-      <Button type={'primary'}>
-          aaa
-      </Button>
     </div>
   )
 }
