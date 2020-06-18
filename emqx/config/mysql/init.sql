@@ -97,4 +97,3 @@ CREATE TABLE `mqtt_acked` (
   UNIQUE KEY `mqtt_acked_key` (`clientid`,`topic`),
   INDEX topic_index(`id`, `topic`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8MB4;
-
