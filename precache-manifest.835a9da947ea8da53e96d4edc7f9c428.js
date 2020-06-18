@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c13d50ee303aa52fdaa199da1d98cea6",
+    "revision": "4031883c8efd9ac7019e1b4619d2b45c",
     "url": "/IOTBP/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/IOTBP/static/css/2.f47422e6.chunk.css"
   },
   {
-    "revision": "965078981ea70dfee30e",
+    "revision": "51587a3375d9a7c1eec3",
     "url": "/IOTBP/static/css/main.b4d6de54.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/IOTBP/static/js/2.e1296e41.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "965078981ea70dfee30e",
-    "url": "/IOTBP/static/js/main.57c8a81a.chunk.js"
+    "revision": "51587a3375d9a7c1eec3",
+    "url": "/IOTBP/static/js/main.d83e3816.chunk.js"
   },
   {
     "revision": "35a02629a4cc8a78e15a",
