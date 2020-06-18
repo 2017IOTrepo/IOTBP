@@ -20,7 +20,7 @@ const DebugComponent = () => {
   const handlePublishClick = (event: MouseEvent) => {
     event.preventDefault()
     config.clientId = 'publish client' + Date.parse(new Date().toString()).toString()
-    bindingPublishClient(mqtt.connect('ws://39.105.110.28:8083/mqtt', config))
+    bindingPublishClient(mqtt.connect('wss://39.105.110.28:8084/mqtt', config))
     publishClient.on('connect', () => {
       console.log(publishClient)
       message.success('发布用mqtt成功连接!')
@@ -35,7 +35,7 @@ const DebugComponent = () => {
   const handleSubscribeClick = (event: MouseEvent) => {
     event.preventDefault()
     config.clientId = 'subscribe client' + Date.parse(new Date().toString()).toString()
-    bindingSubscribeClient(mqtt.connect('ws://39.105.110.28:8083/mqtt', config))
+    bindingSubscribeClient(mqtt.connect('wss://39.105.110.28:8084/mqtt', config))
     subscribeClient.on('connect', () => {
       console.log(publishClient)
       message.success('订阅用mqtt成功连接!')
@@ -56,13 +56,13 @@ const DebugComponent = () => {
     <Space direction={'vertical'}>
       <Space>
         <Button
-          disabled={publishDisable as boolean}
+          disabled={publishDisable}
           type='primary'
           onClick={handlePublishClick}>
                     发布用mqtt连接
         </Button>
         <Button
-          disabled={subscribeDisable as boolean}
+          disabled={subscribeDisable}
           type='primary'
           onClick={handleSubscribeClick}>
                     订阅用mqtt连接

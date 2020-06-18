@@ -10,7 +10,7 @@ export const App = () => {
   })
 
   const colStyle: CSSProperties = {
-    marginTop: '5%'
+    marginTop: '2%'
   }
 
   return (
