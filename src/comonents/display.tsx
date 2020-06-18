@@ -6,7 +6,7 @@ import { Space } from 'antd'
  * */
 const DisplayComponent = () => {
   useEffect(() => {
-    console.log('initial')
+    console.log('display refresh')
   })
 
   return (

@@ -1,8 +1,15 @@
 import mqtt from 'mqtt'
-import React, { MouseEvent } from 'react'
+import React, { MouseEvent, useContext, useEffect } from 'react'
 import { Button, message, Space } from 'antd'
 import { useDisableSetter } from '../hooks/prop_hooks'
-import { bindingPublishClient, bindingSubscribeClient, publishClient, subscribeClient } from '../store'
+import {
+  bindingPublishClient,
+  bindingSubscribeClient,
+  publishClient,
+  subscribeClient
+} from '../store'
+import { randomBetween, randomBoolean } from '../utils/rand'
+import { AppContext, context } from '../hooks/props'
 
 /**
  * Debug栏
@@ -10,6 +17,12 @@ import { bindingPublishClient, bindingSubscribeClient, publishClient, subscribeC
 const DebugComponent = () => {
   const [publishDisable, reversePublishDisable] = useDisableSetter()
   const [subscribeDisable, reverseSubscribeDisable] = useDisableSetter()
+
+  const data = useContext(AppContext) as context
+
+  useEffect(() => {
+    console.log('debug refresh')
+  })
 
   const config: mqtt.IClientOptions = {
     clientId: '',
@@ -65,6 +78,29 @@ const DebugComponent = () => {
     message.success('发送消息')
   }
 
+  const handleRandomMessage = (event: MouseEvent) => {
+    event.preventDefault()
+    data.setStoreSender({
+      autoOperation: randomBoolean(),
+      exceptionAlarm: randomBoolean(),
+      location: '暂无',
+      lowWaterLevel: randomBoolean(),
+      moistureThreshold: randomBetween(0, 80),
+      pumpStatus: randomBoolean(),
+      saveTimeStamp: Date.parse(new Date().toString()).toString(),
+      soilMoisture: randomBetween(20, 60),
+      soilTemperature: randomBetween(20, 40),
+      tempAlarm: randomBoolean(),
+      tempThreshold: randomBetween(0, 100),
+      terminalStatus: randomBoolean(),
+      waterLevel: randomBetween(0, 100),
+      waterLevelAlarm: randomBoolean(),
+      waterLevelThreshold: randomBetween(0, 100)
+    })
+    console.log(data.storeSender)
+    handlePublishMessageClick(event)
+  }
+
   return (
     <Space direction={'vertical'}>
       <Space>
@@ -81,13 +117,24 @@ const DebugComponent = () => {
                     订阅用mqtt连接
         </Button>
       </Space>
-      <Button
-        type={'primary'}
-        disabled={!(subscribeDisable && publishDisable)}
-        onClick={handlePublishMessageClick}
-      >
-        发布信息
-      </Button>
+      <Space>
+      </Space>
+      <Space>
+        <Button
+          type={'primary'}
+          disabled={!(subscribeDisable && publishDisable)}
+          onClick={handlePublishMessageClick}
+        >
+          发布信息
+        </Button>
+
+        <Button
+          disabled={!(subscribeDisable && publishDisable)}
+          onClick={handleRandomMessage}
+        >
+          直接随机信息
+        </Button>
+      </Space>
     </Space>
   )
 }
