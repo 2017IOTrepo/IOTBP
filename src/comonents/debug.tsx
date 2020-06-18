@@ -1,6 +1,6 @@
 import mqtt from 'mqtt'
 import React, { MouseEvent, useContext, useEffect } from 'react'
-import { Button, message, Space } from 'antd'
+import { Button, message, Space, Typography } from 'antd'
 import { useDisableSetter } from '../hooks/prop_hooks'
 import {
   bindingPublishClient,
@@ -10,6 +10,8 @@ import {
 } from '../store'
 import { randomBetween, randomBoolean } from '../utils/rand'
 import { AppContext, context } from '../hooks/props'
+
+const { Title } = Typography
 
 /**
  * Debug栏
@@ -66,21 +68,23 @@ const DebugComponent = () => {
       message.error('订阅用mqtt成功连接失败!原因：' + err.message)
     })
 
-    subscribeClient.on('message', (topic: string, message: Buffer) => {
-      console.log(topic + ':' + message.toString())
+    subscribeClient.on('message', (topic: string, msg: Buffer) => {
+      message.success('收到来自' + topic + '的消息！')
+      data.storeReceiver = JSON.parse(msg.toString())
+      data.setStoreReceiver(data.storeReceiver)
+      console.log(topic + ':' + msg.toString())
     })
   }
 
   const handlePublishMessageClick = (event: MouseEvent) => {
     event.preventDefault()
-    console.log('发送信息')
-    publishClient.publish('test', 'message')
-    message.success('发送消息')
+    publishClient.publish('test', JSON.stringify(data.storeSender))
+    message.success('消息已发送!')
   }
 
   const handleRandomMessage = (event: MouseEvent) => {
     event.preventDefault()
-    data.setStoreSender({
+    data.storeSender = {
       autoOperation: randomBoolean(),
       exceptionAlarm: randomBoolean(),
       location: '暂无',
@@ -96,13 +100,16 @@ const DebugComponent = () => {
       waterLevel: randomBetween(0, 100),
       waterLevelAlarm: randomBoolean(),
       waterLevelThreshold: randomBetween(0, 100)
-    })
-    console.log(data.storeSender)
+    }
+    data.setStoreSender(data.storeSender)
     handlePublishMessageClick(event)
   }
 
   return (
     <Space direction={'vertical'}>
+      <Title>
+        mqtt调试框
+      </Title>
       <Space>
         <Button
           disabled={publishDisable}

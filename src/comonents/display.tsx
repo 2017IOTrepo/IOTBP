@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
-import { Space } from 'antd'
+import { Space, Typography } from 'antd'
+
+const { Title } = Typography
 
 /**
  * 展示栏
@@ -11,7 +13,9 @@ const DisplayComponent = () => {
 
   return (
     <Space direction={'vertical'}>
-            bbb
+      <Title>
+        mqtt展示框
+      </Title>
     </Space>
   )
 }
