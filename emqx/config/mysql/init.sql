@@ -97,3 +97,26 @@ CREATE TABLE `mqtt_acked` (
   UNIQUE KEY `mqtt_acked_key` (`clientid`,`topic`),
   INDEX topic_index(`id`, `topic`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8MB4;
+
+DROP TABLE IF EXISTS `mqtt_data_log`;
+CREATE TABLE `mqtt_data_log` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `soilMoisture` FLOAT(11,2) DEFAULT NULL,
+  `soilTemperature` FLOAT(11,2) DEFAULT NULL,
+  `waterLevel` FLOAT(11,2) DEFAULT NULL,
+  `tempThreshold` FLOAT(11,2) DEFAULT NULL,
+  `moistureThreshold` FLOAT(11,2) DEFAULT NULL,
+  `waterLevelThreshold` FLOAT(11,2) DEFAULT NULL,
+  `lowWaterLevel` TINYINT(1) DEFAULT NULL,
+  `pumpStatus` TINYINT(1) DEFAULT NULL,
+  `terminalStatus` TINYINT(1) DEFAULT NULL,
+  `autoOperation` TINYINT(1) DEFAULT NULL,
+  `tempAlarm` TINYINT(1) DEFAULT NULL,
+  `waterLevelAlarm` TINYINT(1) DEFAULT NULL,
+  `exceptionAlarm` TINYINT(1) DEFAULT NULL,
+  `location` varchar(50) DEFAULT NULL,
+  `topic` varchar(50) DEFAULT NULL,
+  `saveTimeStamp` CHAR(15) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX topic_index(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8MB4;

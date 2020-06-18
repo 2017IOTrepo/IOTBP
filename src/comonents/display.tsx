@@ -21,7 +21,7 @@ const DisplayComponent = () => {
   return (
     <Space direction={'vertical'}>
       <Title>
-        mqtt展示框
+        mqtt数据展示框
       </Title>
       <Space>
         <Card style={cardCSS}>

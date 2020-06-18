@@ -72,6 +72,50 @@ const DebugComponent = () => {
       message.success('收到来自' + topic + '的消息！')
       data.storeReceiver = JSON.parse(msg.toString())
       data.setStoreReceiver(data.storeReceiver)
+
+      // excuteSQL('INSERT INTO mqtt_data_log(soilMoisture,\n' +
+      //   'soilTemperature,\n' +
+      //   'waterLevel,\n' +
+      //   'lowWaterLevel,\n' +
+      //   'pumpStatus,\n' +
+      //   'saveTimeStamp,\n' +
+      //   'terminalStatus,\n' +
+      //   'location,\n' +
+      //   'autoOperation,\n' +
+      //   'tempAlarm,\n' +
+      //   'waterLevelAlarm,\n' +
+      //   'exceptionAlarm,\n' +
+      //   'tempThreshold,\n' +
+      //   'moistureThreshold,\n' +
+      //   'waterLevelThreshold,\n' +
+      //   'topic) VALUES(\n' +
+      //   '0,0,0,1,1,1592491954000,1,\'11\',1,1,1,1,1,1,1,\'11\'\n' +
+      //   ')',
+      // [
+      //   data.storeReceiver.soilMoisture,
+      //   data.storeReceiver.soilTemperature,
+      //   data.storeReceiver.waterLevel,
+      //   data.storeReceiver.lowWaterLevel,
+      //   data.storeReceiver.pumpStatus,
+      //   data.storeReceiver.saveTimeStamp,
+      //   data.storeReceiver.terminalStatus,
+      //   data.storeReceiver.location,
+      //   data.storeReceiver.autoOperation,
+      //   data.storeReceiver.tempAlarm,
+      //   data.storeReceiver.waterLevelAlarm,
+      //   data.storeReceiver.exceptionAlarm,
+      //   data.storeReceiver.tempThreshold,
+      //   data.storeReceiver.moistureThreshold,
+      //   data.storeReceiver.waterLevelThreshold,
+      //   topic
+      // ],
+      // (err: any, results: any) => {
+      //   if (err) {
+      //     message.error('数据库插入失败!原因：' + err.message)
+      //   } else {
+      //     message.success('插入数据成功！')
+      //   }
+      // })
       console.log(topic + ':' + msg.toString())
     })
   }
@@ -108,7 +152,7 @@ const DebugComponent = () => {
   return (
     <Space direction={'vertical'}>
       <Title>
-        mqtt调试框
+        mqtt数据调试框
       </Title>
       <Space>
         <Button
