@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/IOTBP/static/css/main.b4d6de54.chunk.css",
-    "main.js": "/IOTBP/static/js/main.c57ccf81.chunk.js",
-    "main.js.map": "/IOTBP/static/js/main.c57ccf81.chunk.js.map",
+    "main.js": "/IOTBP/static/js/main.069c607a.chunk.js",
+    "main.js.map": "/IOTBP/static/js/main.069c607a.chunk.js.map",
     "runtime-main.js": "/IOTBP/static/js/runtime-main.56b9f24b.js",
     "runtime-main.js.map": "/IOTBP/static/js/runtime-main.56b9f24b.js.map",
     "static/css/2.3cb76441.chunk.css": "/IOTBP/static/css/2.3cb76441.chunk.css",
     "static/js/2.e795382d.chunk.js": "/IOTBP/static/js/2.e795382d.chunk.js",
     "static/js/2.e795382d.chunk.js.map": "/IOTBP/static/js/2.e795382d.chunk.js.map",
     "index.html": "/IOTBP/index.html",
-    "precache-manifest.2d49d9f4391ea56408bee586f1c9c131.js": "/IOTBP/precache-manifest.2d49d9f4391ea56408bee586f1c9c131.js",
+    "precache-manifest.f72dadb3b9f26ff49a9581d37549bc0c.js": "/IOTBP/precache-manifest.f72dadb3b9f26ff49a9581d37549bc0c.js",
     "service-worker.js": "/IOTBP/service-worker.js",
     "static/css/2.3cb76441.chunk.css.map": "/IOTBP/static/css/2.3cb76441.chunk.css.map",
     "static/css/main.b4d6de54.chunk.css.map": "/IOTBP/static/css/main.b4d6de54.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.3cb76441.chunk.css",
     "static/js/2.e795382d.chunk.js",
     "static/css/main.b4d6de54.chunk.css",
-    "static/js/main.c57ccf81.chunk.js"
+    "static/js/main.069c607a.chunk.js"
   ]
 }
