@@ -35,7 +35,7 @@ const DebugComponent = () => {
   const handlePublishClick = (event: MouseEvent) => {
     event.preventDefault()
     config.clientId = 'publish client' + Date.parse(new Date().toString()).toString()
-    bindingPublishClient(mqtt.connect('wss://www.fivezha.cn:8084/mqtt', config))
+    bindingPublishClient(mqtt.connect('ws://www.fivezha.cn:8083/mqtt', config))
     publishClient.on('connect', () => {
       console.log(publishClient)
       message.success('发布用mqtt成功连接!')
@@ -50,7 +50,7 @@ const DebugComponent = () => {
   const handleSubscribeClick = (event: MouseEvent) => {
     event.preventDefault()
     config.clientId = 'subscribe client' + Date.parse(new Date().toString()).toString()
-    bindingSubscribeClient(mqtt.connect('wss://www.fivezha.cn:8084/mqtt', config))
+    bindingSubscribeClient(mqtt.connect('ws://www.fivezha.cn:8083/mqtt', config))
     subscribeClient.on('connect', () => {
       console.log(publishClient)
       message.success('订阅用mqtt成功连接!')
